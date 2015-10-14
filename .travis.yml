@@ -17,4 +17,4 @@ matrix:
   - os: osx
     compiler: gcc
 
-script: make
+script: cmake
