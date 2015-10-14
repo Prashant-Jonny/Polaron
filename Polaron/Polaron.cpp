@@ -27,7 +27,7 @@ s32 main(s32 argc, char* argv[])
 	{
 		printUsage();
 		exit();
-		return 0;
+		return 1;
 	}
 
 	s32 ret = load(argv[1], argv[2] ? argv[2] : "");
