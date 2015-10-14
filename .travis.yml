@@ -16,3 +16,5 @@ matrix:
  exclude:
   - os: osx
     compiler: gcc
+
+script: make
