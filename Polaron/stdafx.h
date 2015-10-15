@@ -6,13 +6,13 @@
 #include <conio.h>
 #include <iostream>
 
-#include "Logger.h"
+using s64 = std::int64_t;
+using s32 = std::int32_t;
+using s16 = std::int16_t;
+using s8 =  std::int8_t;
+using u64 = std::uint64_t;
+using u32 = std::uint32_t;
+using u16 = std::uint16_t;
+using u8 =  std::uint8_t;
 
-typedef int64_t  s64;
-typedef int32_t  s32;
-typedef int16_t  s16;
-typedef int8_t   s8;
-typedef uint64_t u64;
-typedef uint32_t u32;
-typedef uint16_t u16;
-typedef uint8_t  u8;
+#include "Logger.h"
