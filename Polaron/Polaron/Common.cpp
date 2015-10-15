@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Common.h"
 
 #ifdef _WIN32

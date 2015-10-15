@@ -12,32 +12,38 @@
     <Filter Include="Polaron">
       <UniqueIdentifier>{cce5ca33-f14f-4bde-89e0-0d687e67ccb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{55d8cbeb-9c96-4d22-9955-7fbb4f1d8916}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Common.cpp">
+    <ClCompile Include="Polaron/Common.cpp">
       <Filter>Polaron</Filter>
     </ClCompile>
-    <ClCompile Include="Loader.cpp">
+    <ClCompile Include="Polaron/Loader.cpp">
       <Filter>Polaron</Filter>
     </ClCompile>
-    <ClCompile Include="Logger.cpp">
+    <ClCompile Include="Polaron/Logger.cpp">
       <Filter>Polaron</Filter>
     </ClCompile>
-    <ClCompile Include="Polaron.cpp">
+    <ClCompile Include="Polaron/Polaron.cpp">
       <Filter>Polaron</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Loader.h">
+    <ClInclude Include="Polaron/Loader.h">
       <Filter>Polaron</Filter>
     </ClInclude>
-    <ClInclude Include="Logger.h">
+    <ClInclude Include="Polaron/Logger.h">
       <Filter>Polaron</Filter>
     </ClInclude>
-    <ClInclude Include="Common.h">
+    <ClInclude Include="Polaron/Common.h">
       <Filter>Polaron</Filter>
     </ClInclude>
   </ItemGroup>

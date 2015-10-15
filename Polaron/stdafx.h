@@ -9,6 +9,7 @@
 
 #ifdef _WIN32
 #include "Shlwapi.h"
+#pragma comment(lib, "shlwapi.lib")
 #undef ERROR
 #endif
 
@@ -21,5 +22,5 @@ using u32 = std::uint32_t;
 using u16 = std::uint16_t;
 using u8 =  std::uint8_t;
 
-#include "Logger.h"
-#include "Common.h"
+#include "Polaron/Logger.h"
+#include "Polaron/Common.h"
