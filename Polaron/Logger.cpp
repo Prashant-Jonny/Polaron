@@ -2,8 +2,9 @@
 #include "Logger.h"
 
 std::ofstream logFile;
+s32 logLvl;
 
-s32 initLogging()
+s32 initLogging(s32 logLevel)
 {
 	logFile.open("Polaron.log");
 	
@@ -13,6 +14,8 @@ s32 initLogging()
 	}
 
 	logFile.clear();
+
+	logLvl = logLevel;
 	return 0;
 }
 
@@ -26,13 +29,16 @@ void log(LogLevel level, const std::string format, ...)
 	va_list args;
 	std::string fmt;
 
-	switch (level)
+	if (!(level > logLvl))
 	{
-	case INFO:    fmt += "I: "; break;
-	case WARNING: fmt += "W: "; break;
-	case ERROR:   fmt += "E: "; break;
-	case FATAL:   fmt += "F: "; break;
-	case DEBUG:   fmt += "D: "; break;
+		switch (level)
+		{
+		case FATAL:   fmt += "F: "; break;
+		case ERROR:   fmt += "E: "; break;
+		case WARNING: fmt += "W: "; break;
+		case INFO:    fmt += "I: "; break;
+		case DEBUG:   fmt += "D: "; break;
+		}
 	}
 
 	va_start(args, format);
@@ -40,15 +46,18 @@ void log(LogLevel level, const std::string format, ...)
 	char* buffer = new char[strlen(fmt.c_str())];
 	snprintf(buffer, sizeof(buffer), fmt.c_str(), args);
 
-	if (level == ERROR)
+	if (!(level > logLvl))
 	{
-		fprintf(stderr, fmt.c_str(), args);
-	}
-	else
-	{
-		fprintf(stdout, fmt.c_str(), args);
-	}
+		if (level == ERROR)
+		{
+			fprintf(stderr, fmt.c_str());
+		}
+		else
+		{
+			fprintf(stdout, fmt.c_str());
+		}
 
-	logFile << format.c_str();
+		logFile << format.c_str();
+	}
 	va_end(args);
 }

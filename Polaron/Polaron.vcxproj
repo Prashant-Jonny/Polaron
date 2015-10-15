@@ -148,11 +148,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Common.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Polaron.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="stdafx.h" />
