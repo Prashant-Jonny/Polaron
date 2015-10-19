@@ -12,11 +12,11 @@ EndIf()
 
 include_directories("${POLARON_SRC_DIR}")
 
-add_executable(
-Polaron
-"${POLARON_SRC_DIR}/Polaron/Polaron.cpp"
-"${POLARON_SRC_DIR}/Polaron/*")
+file(GLOB POLARON_SRC "${POLARON_SRC_DIR}/Polaron/*")
 
+add_executable(Polaron ${POLARON_SRC})
+
+SET_TARGET_PROPERTIES(Polaron PROPERTIES LINKER_LANGUAGE C++)
 target_link_libraries(Polaron)
 
 #set_target_properties(Polaron PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${POLARON_SRC_DIR}/stdafx.h")

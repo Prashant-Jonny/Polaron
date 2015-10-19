@@ -13,16 +13,15 @@ std::string getAbsolutePath(std::string relative)
 	return path;
 }
 
-bool checkExistence(std::string path)
+bool fileExists(std::string path)
 {
 	return PathFileExists(s2ws(path.c_str()).c_str());
 }
 
-s32 checkExtension(std::string in, std::string* out)
+s32 checkExtension(std::string in)
 {
 	log(DEBUG, in);
-	log(DEBUG, *out);
-	std::string fileType = in.substr(in.find_last_of(".") != std::string::npos);
+	std::string fileType = in.substr(strlen(in.c_str()) - 5);
 	
 	if (fileType == "class")
 	{
@@ -43,11 +42,20 @@ s32 checkExtension(std::string in, std::string* out)
 s32 load(std::string in, std::string out)
 {
 	std::string path = getAbsolutePath(in);
-	s32 fileType = checkExtension(path, &out);
+	s32 fileType;
 
-	if (!(fileType > 0))
+	if (fileExists(path))
 	{
-		log(ERROR, "Unknown file type.");
+		fileType = checkExtension(path);
+	}
+	else
+	{
+		log(FATAL, "The file doesn't exist.");
+		return 1;
+	}
+
+	if (!fileType > 0)
+	{
 		return 1;
 	}
 

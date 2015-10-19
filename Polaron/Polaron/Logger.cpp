@@ -44,18 +44,18 @@ void log(LogLevel level, const std::string format, ...)
 
 	va_start(args, format);
 	fmt += format + "\n";
-	char* buffer = new char[strlen(fmt.c_str())];
-	snprintf(buffer, sizeof(buffer), fmt.c_str(), args);
+	char buffer[256];
+	vsnprintf(buffer, sizeof(buffer), fmt.c_str(), args);
 
 	if (!(level > logLvl))
 	{
 		if (level == ERROR)
 		{
-			fprintf(stderr, fmt.c_str());
+			fprintf(stderr, buffer);
 		}
 		else
 		{
-			fprintf(stdout, fmt.c_str());
+			fprintf(stdout, buffer);
 		}
 
 		logFile << format.c_str();

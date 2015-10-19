@@ -53,6 +53,7 @@ void printUsage()
 
 void exit()
 {
+	finalizeLogging();
 	printf("Press any key to exit...");
 	_getch();
 }
@@ -61,8 +62,7 @@ s32 main(s32 argc, char* argv[])
 {
 	s32 logLevel;
 
-	s32 ret = checkArguments(argc, argv, &logLevel);
-	if (ret != 0)
+	if (checkArguments(argc, argv, &logLevel) != 0)
 	{
 		printUsage();
 		exit();
@@ -71,17 +71,15 @@ s32 main(s32 argc, char* argv[])
 
 	if (initLogging(logLevel ? logLevel : DEBUG) != 0)
 	{
-		printf("Fatal error during logging intialization.");
+		fprintf(stderr, "Fatal error during logging intialization.");
 		return 1;
 	}
 
-	ret = load(argv[1], argv[2] ? argv[2] : "");
-	if (ret != 0)
+	if (load(argv[1], argv[2] ? argv[2] : "") != 0)
 	{
 		log(ERROR, "Loading failed.");
 	}
 
-	finalizeLogging();
 	exit();
 	return 0;
 }
