@@ -27,7 +27,7 @@ s32 checkExtension(std::string in)
 	}
 	else
 	{
-		log(FATAL, "Unknown file type. (%s)", fileType);
+		log(FATAL, "Unknown file type. (%s)", fileType.c_str());
 	}
 
 	return 0;
@@ -36,7 +36,7 @@ s32 checkExtension(std::string in)
 s32 loadClass(std::string path)
 {
 	// Open the file
-	std::ifstream file(path, std::ios::binary);
+	std::ifstream file(path.c_str());
 
 	if (!file)
 	{
@@ -72,7 +72,7 @@ s32 loadClass(std::string path)
 s32 load(std::string in, std::string out)
 {
 	std::string path = getAbsolutePath(in);
-	std::ifstream file(path, std::ios::binary);
+	std::ifstream file(path.c_str());
 	s32 fileType;
 
 	if (file)
