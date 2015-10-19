@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.8.7)
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 #include(cotire)
 
 project(Polaron)
@@ -13,10 +12,8 @@ EndIf()
 include_directories("${POLARON_SRC_DIR}")
 
 file(GLOB POLARON_SRC "${POLARON_SRC_DIR}/Polaron/*")
-
 add_executable(Polaron ${POLARON_SRC})
 
-SET_TARGET_PROPERTIES(Polaron PROPERTIES LINKER_LANGUAGE C++)
 target_link_libraries(Polaron)
 
 #set_target_properties(Polaron PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${POLARON_SRC_DIR}/stdafx.h")

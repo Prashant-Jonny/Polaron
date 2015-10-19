@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <iostream>
 
 #ifdef _WIN32
+#include <conio.h>
 #include "Shlwapi.h"
 #pragma comment(lib, "shlwapi.lib")
 #undef ERROR
